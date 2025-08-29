@@ -23,15 +23,13 @@
       <button onclick="salvaFile()">💾 Salva</button>
       <button onclick="nuovoFile()">🆕 Nuovo</button>
       <button onclick="cancellaFile()">🗑️ Elimina</button>
-      <button onclick="esportaTXT()">📄 Esporta TXT</button>
-      <button onclick="esportaHTML()">🌐 Esporta HTML</button>
       <select id="fileList" onchange="apriFile()">
         <option value="">-- Seleziona file --</option>
       </select>
     </div>
 
     <div>
-      <!-- Formattazione base -->
+      <!-- Formattazione -->
       <button onclick="document.execCommand('bold')"><b>G</b></button>
       <button onclick="document.execCommand('italic')"><i>C</i></button>
       <button onclick="document.execCommand('underline')"><u>S</u></button>
@@ -43,6 +41,7 @@
   </header>
 
   <main>
+    <!-- Editor WYSIWYG -->
     <div id="editor" contenteditable="true">Scrivi qui...</div>
   </main>
 
@@ -70,7 +69,7 @@
       const name = document.getElementById("fileName").value.trim();
       if (!name) { alert("Inserisci un nome file!"); return; }
       const files = getFiles();
-      files[name] = document.getElementById("editor").innerHTML; // salva HTML
+      files[name] = document.getElementById("editor").innerHTML; // 🔹 salva HTML
       localStorage.setItem("files", JSON.stringify(files));
       aggiornaLista();
       alert("File salvato!");
@@ -105,31 +104,6 @@
         alert("File eliminato!");
       }
     }
-
-    // Esporta come TXT
-    function esportaTXT() {
-      const name = document.getElementById("fileName").value.trim();
-      if (!name) { alert("Seleziona o inserisci un file!"); return; }
-      const content = document.getElementById("editor").innerText;
-      const blob = new Blob([content], { type: "text/plain" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = name + ".txt";
-      link.click();
-    }
-
-    // Esporta come HTML
-    function esportaHTML() {
-      const name = document.getElementById("fileName").value.trim();
-      if (!name) { alert("Seleziona o inserisci un file!"); return; }
-      const content = document.getElementById("editor").innerHTML;
-      const blob = new Blob([content], { type: "text/html" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = name + ".html";
-      link.click();
-    }
-
 
     // Inizializza
     aggiornaLista();
