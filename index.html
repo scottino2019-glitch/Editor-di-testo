@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>📝 Editor di Testo Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+JP:wght@200..900&family=Noto+Serif+KR:wght@200..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -454,6 +457,10 @@
             background: #f8f9fa; 
             font-style: italic; 
         }
+.editor[style*="Noto Sans Arabic"] {
+    direction: rtl;
+    text-align: right;
+}
 
         /* Evidenziazione ricerca */
         .highlight {
@@ -465,7 +472,7 @@
             background-color: #ff9800 !important;
             color: #fff !important;
         }
-    </style>
+       </style>
 </head>
 <body>
     <div class="container">
@@ -492,6 +499,16 @@
                     <option value="Georgia">Georgia</option>
                     <option value="Verdana">Verdana</option>
                     <option value="Courier New">Courier New</option>
+                    <option value="Noto Sans Arabic">Noto Sans Arabic</option>
+                                                        <option 
+                             value="Noto Sans JP">Noto Sans JP</option>
+                                                <option                   value="Noto Sans KR">Noto Sans KR</option>
+                                     <option value="Noto Sans SC">Noto Sans SC</option>
+                                     <option value="Noto Sans">Noto Sans </option>
+                                                       <option value="Noto Serif JP">Noto Serif JP</option>
+                                    <option value="Noto Serif KR">Noto Serif KR</option>
+                                    <option value="Noto Serif">Noto Serif</option>
+                   
                 </select>
                 <select class="size-select" id="fontSize" onchange="changeFontSize()">
                     <option value="12">12</option>
@@ -798,9 +815,9 @@
             }
 
             changeFont() {
-                const font = document.getElementById('fontFamily').value;
-                this.formatText('fontName', font);
-            }
+    const font = document.getElementById('fontFamily').value;
+    this.editor.style.fontFamily = font; // invece di execCommand
+}
 
             changeFontSize() {
                 const size = document.getElementById('fontSize').value;
