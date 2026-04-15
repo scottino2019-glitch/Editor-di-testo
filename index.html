@@ -813,6 +813,21 @@
                     <div class="template-name">Book</div>
                     <div class="template-description">Recensione Libro</div>
                 </div>
+<div class="template-card" onclick="useTemplate('tutorial')">
+                    <div class="template-icon">✒️</div>
+                    <div class="template-name">Tutorial</div>
+                    <div class="template-description">Guida 'How to'</div>
+                </div>
+<div class="template-card" onclick="useTemplate('interview')">
+                    <div class="template-icon">🎤</div>
+                    <div class="template-name">Intervista</div>
+                    <div class="template-description">Intervista</div>
+                </div>
+<div class="template-card" onclick="useTemplate('fact_sheet')">
+                    <div class="template-icon">📄</div>
+                    <div class="template-name">Approfondimento</div>
+                    <div class="template-description">Approfondire un argomento</div>
+                </div>
             </div>
             <div class="modal-buttons">
                 <button class="btn secondary" onclick="closeModal()">Chiudi</button>
@@ -1431,7 +1446,101 @@ book_review: `
     <div style="background-color: #e3f2fd; padding: 15px; border-left: 5px solid #2196f3;">
         <strong>Perché leggerlo:</strong> [Indica il motivo principale per cui consiglieresti questo libro a un amico o ai tuoi follower].
     </div>
+`,
+interview: `
+    <div style="text-align: center; margin-bottom: 30px;">
+        <div style="color: #888; font-weight: bold; text-transform: uppercase;">L'intervista della settimana</div>
+        <h1 style="margin: 5px 0;">[Nome dell'Intervistato]: "[Citazione più forte dell'intervista]"</h1>
+        <div style="margin-top: 10px;">A cura di <strong>[Tuo Nome]</strong></div>
+    </div>
+
+    <div style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 30px; font-style: italic;">
+        [Breve introduzione: chi è l'ospite e perché lo abbiamo intervistato? Qual è il contesto?]
+    </div>
+
+    <div style="line-height: 1.7;">
+        <p><strong style="color: #d32f2f;">Domanda:</strong> [Testo della prima domanda]</p>
+        <p><strong>[Nome Intervistato]:</strong> [Risposta dell'intervistato. Qui puoi inserire i dettagli del suo pensiero].</p>
+        
+        <br>
+        
+        <p><strong style="color: #d32f2f;">Domanda:</strong> [Testo della seconda domanda]</p>
+        <p><strong>[Nome Intervistato]:</strong> [Risposta dell'intervistato].</p>
+    </div>
+
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; color: #666;">
+        <em>© [Anno] - Tutti i diritti riservati a [Nome Blog/Scuola]</em>
+    </div>
+`,
+tutorial: `
+    <div style="background-color: #2c3e50; color: white; padding: 30px; text-align: center; border-radius: 5px 5px 0 0;">
+        <h1 style="margin: 0;">GUIDA: [Cosa imparerai a fare]</h1>
+        <p style="margin-top: 10px; opacity: 0.8;">Difficoltà: [Facile/Media/Difficile] • Tempo stimato: [X] minuti</p>
+    </div>
+
+    <div style="padding: 20px; border: 1px solid #ddd; border-top: none;">
+        <h3>Occorrente:</h3>
+        <ul>
+            <li>[Strumento o prerequisito 1]</li>
+            <li>[Strumento o prerequisito 2]</li>
+        </ul>
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+        <div style="margin-bottom: 20px;">
+            <div style="display: inline-block; width: 30px; height: 30px; background: #2c3e50; color: white; border-radius: 50%; text-align: center; line-height: 30px; margin-right: 10px;">1</div>
+            <strong style="font-size: 1.1em;">[Primo Step]</strong>
+            <p style="margin-left: 45px;">[Descrizione dettagliata su cosa fare nel primo passaggio].</p>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div style="display: inline-block; width: 30px; height: 30px; background: #2c3e50; color: white; border-radius: 50%; text-align: center; line-height: 30px; margin-right: 10px;">2</div>
+            <strong style="font-size: 1.1em;">[Secondo Step]</strong>
+            <p style="margin-left: 45px;">[Descrizione dettagliata del secondo passaggio].</p>
+        </div>
+
+        <div style="background-color: #fff3cd; padding: 15px; border-left: 5px solid #ffecb5; margin-top: 20px;">
+            <strong>Pro Tip:</strong> [Un consiglio extra per rendere il lavoro più veloce o migliore].
+        </div>
+    </div>
+`,
+
+fact_sheet: `
+    <div style="border: 2px solid #444; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #444; padding-bottom: 10px; margin-bottom: 20px;">
+            <h2 style="margin: 0; text-transform: uppercase;">[Soggetto della Scheda]</h2>
+            <div style="background: #444; color: white; padding: 5px 15px;">ID: [Codice/Materia]</div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+                <strong>In breve:</strong>
+                <p style="margin-top: 5px;">[Riassunto rapido di chi/cos'è il soggetto].</p>
+                
+                <strong>Periodo/Datazione:</strong>
+                <p style="margin-top: 5px;">[Es. XIX Secolo / 1789 / Era Mesozoica]</p>
+            </div>
+            <div style="background-color: #f2f2f2; padding: 15px;">
+                <strong>Dati Chiave:</strong>
+                <ul style="margin-top: 5px; padding-left: 20px;">
+                    <li><strong>Dato 1:</strong> [Valore]</li>
+                    <li><strong>Dato 2:</strong> [Valore]</li>
+                    <li><strong>Status:</strong> [Attivo/Concluso]</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <strong>Analisi Dettagliata:</strong>
+            <p style="text-align: justify;">[Qui puoi inserire la descrizione estesa, le cause, le conseguenze o le proprietà scientifiche del soggetto].</p>
+        </div>
+
+        <div style="margin-top: 20px; font-size: 0.8em; text-align: right; font-style: italic;">
+            Ultimo aggiornamento: [Data odierna]
+        </div>
+    </div>
 `
+
 
                 };
 
